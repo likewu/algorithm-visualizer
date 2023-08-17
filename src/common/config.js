@@ -1,10 +1,15 @@
-import { CODE_CPP, CODE_JAVA, CODE_JS } from 'files';
+import { CODE_CPP, CODE_JAVA, CODE_JS, CODE_JL } from 'files';
 
 const languages = [{
   name: 'JavaScript',
   ext: 'js',
   mode: 'javascript',
   skeleton: CODE_JS,
+}, {
+  name: 'Julia',
+  ext: 'jl',
+  mode: 'julia',
+  skeleton: CODE_JL,
 }, {
   name: 'C++',
   ext: 'cpp',
