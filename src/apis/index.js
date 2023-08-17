@@ -102,7 +102,7 @@ const TracerApi = {
   }),
   cpp: POST('/tracers/cpp'),
   java: POST('/tracers/java'),
-  julia: ({ code }, params, cancelToken) => new Promise((resolve, reject) => {
+  jl: ({ code }, params, cancelToken) => new Promise((resolve, reject) => {
     const worker = new Worker('/api/tracers/julia/worker');
     if (cancelToken) {
       cancelToken.promise.then(cancel => {
