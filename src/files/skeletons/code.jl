@@ -1,10 +1,10 @@
 # import visualization libraries {
-using algorithm-visualizer
+using algorithm_visualizer
 # }
 
 # define tracer variables {
-array2dTracer = Array2DTracer("Grid")
-logTracer = LogTracer("Console")
+array2dTracer = Array2DTracer.Class("Grid")
+logTracer = LogTracer.Class("Console")
 # }
 
 # define input variables
@@ -18,20 +18,20 @@ messages = [
 
 # highlight each line of messages recursively
 function highlight(line)
-  if line >= messages.length return
-  const message = messages[line];
+  if line>length(messages) return nothing end
+  message = messages[line];
   # visualize {
-  logTracer.println(message)
-  array2dTracer.selectRow(line, 0, message.length - 1)
+  LogTracer.println(logTracer, message)
+  Array2DTracer.selectRow(array2dTracer, line, 0, length(message) - 1)
   Tracer.delay();
-  array2dTracer.deselectRow(line, 0, message.length - 1)
+  Array2DTracer.deselectRow(array2dTracer, line, 0, length(message) - 1)
   # }
   highlight(line + 1)
 end
 
 # visualize {
-Layout.setRoot(VerticalLayout([array2dTracer, logTracer]))
-array2dTracer.set(messages)
+Layout.setRoot(VerticalLayout.Class([array2dTracer, logTracer]))
+Array2DTracer.set(array2dTracer, messages)
 Tracer.delay()
 # }
-highlight(0)
+highlight(1)
