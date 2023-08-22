@@ -22,9 +22,9 @@ function highlight(line)
   message = messages[line];
   # visualize {
   LogTracer.println(logTracer, message)
-  Array2DTracer.selectRow(array2dTracer, line, 0, length(message) - 1)
+  Array2DTracer.selectRow(array2dTracer, line, 1, length(message))
   Tracer.delay();
-  Array2DTracer.deselectRow(array2dTracer, line, 0, length(message) - 1)
+  Array2DTracer.deselectRow(array2dTracer, line, 1, length(message))
   # }
   highlight(line + 1)
 end
